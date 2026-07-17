@@ -2222,10 +2222,30 @@ footer {
 
 @media (max-width: 768px) {
   .results-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px 20px 20px 20px;
+    margin: 0 -20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
-  .pte-results-grid {
-    grid-template-columns: 1fr;
+  .results-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .results-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .results-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+  }
+  .results-grid .result-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
   .review-card {
     flex: 0 0 100%;
