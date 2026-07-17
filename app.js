@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initScoreConverter();
   initPracticeHub();
-  initTestimonialSlider();
+  initReviewsCarousel();
+  initVideoPlayers();
   initMultistepForm();
   initScrollReveal();
   initHeroSlideshow();
@@ -429,23 +430,135 @@ function initListeningModule() {
   });
 }
 
-// 4. Testimonials Slider
-function initTestimonialSlider() {
-  const track = document.getElementById('testimonial-track-wrapper');
-  const dots = document.querySelectorAll('#testimonial-slider-nav .slider-dot');
+// 4. Reviews Carousel (Auto-scroll & Interactive Navigation)
+function initReviewsCarousel() {
+  const track = document.getElementById('reviews-track');
+  const prevBtn = document.getElementById('reviews-prev-btn');
+  const nextBtn = document.getElementById('reviews-next-btn');
+  const dots = document.querySelectorAll('#reviews-dots .carousel-dot');
+  const cards = document.querySelectorAll('#reviews-track .review-card');
 
-  if (!track || dots.length === 0) return;
+  if (!track || cards.length === 0) return;
 
-  dots.forEach(dot => {
+  let currentIndex = 0;
+  let slideInterval = null;
+
+  function getVisibleCardsCount() {
+    return window.innerWidth > 768 ? 2 : 1;
+  }
+
+  function getMaxIndex() {
+    return cards.length - getVisibleCardsCount();
+  }
+
+  function updateCarousel() {
+    const maxIndex = getMaxIndex();
+    if (currentIndex > maxIndex) {
+      currentIndex = 0;
+    }
+    if (currentIndex < 0) {
+      currentIndex = maxIndex;
+    }
+
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const gap = 24; // matches gap in CSS
+    const offset = currentIndex * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    dots.forEach((dot, idx) => {
+      if (idx === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex++;
+    const maxIdx = getMaxIndex();
+    if (currentIndex > maxIdx) {
+      currentIndex = 0;
+    }
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex--;
+    const maxIdx = getMaxIndex();
+    if (currentIndex < 0) {
+      currentIndex = maxIdx;
+    }
+    updateCarousel();
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    slideInterval = setInterval(nextSlide, 3500);
+  }
+
+  function stopAutoPlay() {
+    if (slideInterval) clearInterval(slideInterval);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoPlay();
+    });
+  }
+
+  dots.forEach((dot, idx) => {
     dot.addEventListener('click', () => {
-      const index = parseInt(dot.dataset.slide);
-      
-      // Update active classes
-      dots.forEach(d => d.classList.remove('active'));
-      dot.classList.add('active');
+      const maxIdx = getMaxIndex();
+      currentIndex = Math.min(idx, maxIdx);
+      updateCarousel();
+      startAutoPlay();
+    });
+  });
 
-      // Shift track
-      track.style.transform = `translateX(-${index * 100}%)`;
+  window.addEventListener('resize', () => {
+    updateCarousel();
+  });
+
+  updateCarousel();
+  startAutoPlay();
+}
+
+// 4b. Video Testimonials Player (Premium Play on Click)
+function initVideoPlayers() {
+  const containers = document.querySelectorAll('.video-container');
+
+  containers.forEach(container => {
+    const video = container.querySelector('.testimonial-video');
+    const overlay = container.querySelector('.video-overlay');
+
+    if (!video || !overlay) return;
+
+    overlay.addEventListener('click', () => {
+      // Pause all other playing videos for premium experience
+      document.querySelectorAll('.testimonial-video').forEach(v => {
+        if (v !== video) {
+          v.pause();
+          const parent = v.closest('.video-container');
+          if (parent) {
+            parent.classList.remove('playing');
+            v.removeAttribute('controls');
+          }
+        }
+      });
+
+      // Play selected video
+      container.classList.add('playing');
+      video.setAttribute('controls', 'true');
+      video.play();
     });
   });
 }

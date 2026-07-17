@@ -187,6 +187,19 @@ header .container {
   gap: 8px;
 }
 
+.logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
 .logo span {
   color: var(--secondary);
 }
@@ -1679,6 +1692,12 @@ footer {
     font-size: 2rem;
   }
 
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 140px 0 60px 0;
+  }
+
   .hero-title {
     font-size: 2.3rem;
   }
@@ -1688,20 +1707,14 @@ footer {
     padding: 0 16px;
   }
 
-  .hero-actions.centered {
-    flex-direction: column;
-    gap: 12px;
-    padding: 0 24px;
-    width: 100%;
-  }
-
-  .hero-actions.centered .btn {
-    width: 100%;
-  }
-
   .hero-stats.centered {
     gap: 20px;
     flex-wrap: wrap;
+    padding-top: 24px;
+  }
+
+  .hero-stats.centered .stat-box {
+    flex: 1 1 120px;
   }
 
   .converter-display {
@@ -1710,6 +1723,17 @@ footer {
 
   .practice-panel.active {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .panel-prompt {
+    padding: 20px;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .plans-grid {
@@ -1825,4 +1849,402 @@ footer {
 
 .hero-marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* ==========================================================================
+   RESULTS SECTION
+   ========================================================================== */
+.results-section {
+  padding: var(--section-gap) 0;
+  background-color: var(--bg-main);
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.pte-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.result-card {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  border: 1px solid var(--border-light);
+}
+.result-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+.result-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #f3f2fa;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+.result-card:hover .result-image-wrapper img {
+  transform: scale(1.05);
+}
+.result-badge {
+  padding: 16px;
+  background: white;
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   REVIEWS (WHAT OUR STUDENTS SAY) SECTION
+   ========================================================================== */
+.reviews-section {
+  padding: var(--section-gap) 0;
+  background-color: #f7f6ff;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.reviews-carousel-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 24px;
+}
+.review-card {
+  flex: 0 0 calc(50% - 12px);
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+.review-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-header .stars {
+  color: var(--secondary);
+  font-size: 0.95rem;
+}
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--success);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.review-image-container {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.review-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.carousel-nav-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(59, 47, 205, 0.3);
+}
+.carousel-nav-btn.prev-btn {
+  left: 0;
+}
+.carousel-nav-btn.next-btn {
+  right: 0;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(59, 47, 205, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.carousel-dot.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   VIDEOS (SUCCESS STORIES) SECTION
+   ========================================================================== */
+.videos-section {
+  padding: var(--section-gap) 0;
+  background-color: var(--bg-main);
+}
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.video-card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: #000;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+.testimonial-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(12, 11, 36, 0.2) 0%, rgba(12, 11, 36, 0.75) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+  z-index: 5;
+}
+.video-container.playing .video-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+.video-overlay .play-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 20px rgba(255, 189, 18, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 16px;
+}
+.video-overlay:hover .play-btn {
+  transform: scale(1.15);
+  background: white;
+  box-shadow: 0 4px 25px rgba(255, 255, 255, 0.6);
+}
+.video-overlay .video-title {
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   GALLERY (OUR CLASSROOM) SECTION
+   ========================================================================== */
+.gallery-section {
+  padding: var(--section-gap) 0;
+  background-color: #f7f6ff;
+  border-top: 1px solid var(--border-light);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  height: 350px;
+  background-color: #f3f2fa;
+}
+.gallery-image-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 11, 36, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+.overlay-content {
+  text-align: center;
+  color: white;
+  padding: 24px;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover .overlay-content {
+  transform: translateY(0);
+}
+.overlay-content i {
+  font-size: 2.2rem;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.overlay-content h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+.overlay-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR NEW SECTIONS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pte-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  .pte-results-grid {
+    grid-template-columns: 1fr;
+  }
+  .review-card {
+    flex: 0 0 100%;
+  }
+  .reviews-carousel-wrapper {
+    padding: 0 30px;
+  }
+  .carousel-nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item {
+    height: 280px;
+  }
 }
