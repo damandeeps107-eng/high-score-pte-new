@@ -39,7 +39,12 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-main);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(59, 47, 205, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 45%, rgba(139, 92, 246, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 15% 70%, rgba(236, 72, 153, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(59, 47, 205, 0.04) 0%, transparent 35%),
+    #f8f8fc;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -1856,7 +1861,7 @@ footer {
    ========================================================================== */
 .results-section {
   padding: var(--section-gap) 0;
-  background-color: var(--bg-main);
+  background-color: transparent;
 }
 .results-grid {
   display: grid;
@@ -1919,7 +1924,7 @@ footer {
    ========================================================================== */
 .reviews-section {
   padding: var(--section-gap) 0;
-  background-color: #f7f6ff;
+  background-color: transparent;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
@@ -2044,7 +2049,7 @@ footer {
    ========================================================================== */
 .videos-section {
   padding: var(--section-gap) 0;
-  background-color: var(--bg-main);
+  background-color: transparent;
 }
 .videos-grid {
   display: grid;
@@ -2131,7 +2136,7 @@ footer {
    ========================================================================== */
 .gallery-section {
   padding: var(--section-gap) 0;
-  background-color: #f7f6ff;
+  background-color: transparent;
   border-top: 1px solid var(--border-light);
 }
 .gallery-grid {
@@ -2259,7 +2264,30 @@ footer {
     font-size: 0.8rem;
   }
   .videos-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px 20px 20px 20px;
+    margin: 0 -20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .videos-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .videos-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .videos-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+  }
+  .videos-grid .video-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
   .gallery-grid {
     grid-template-columns: 1fr;
