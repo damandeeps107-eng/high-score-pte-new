@@ -40,11 +40,9 @@
 body {
   font-family: var(--font-body);
   background: 
-    radial-gradient(circle at 10% 20%, rgba(59, 47, 205, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 45%, rgba(139, 92, 246, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 15% 70%, rgba(236, 72, 153, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(59, 47, 205, 0.04) 0%, transparent 35%),
-    #f8f8fc;
+    linear-gradient(rgba(248, 248, 252, 0.94), rgba(248, 248, 252, 0.94)),
+    url('assets/testimonials/study_abroad_students.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -327,8 +325,15 @@ header .container {
 }
 
 .hero-content-centered {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  background: rgba(12, 11, 36, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 50px 40px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content-centered .hero-badge {
@@ -2294,5 +2299,18 @@ footer {
   }
   .gallery-item {
     height: 280px;
+  }
+  .hero-content-centered {
+    padding: 30px 20px;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+  .hero-content-centered .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  .hero-content-centered .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
   }
 }
