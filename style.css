@@ -2458,3 +2458,23 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* Premium Frosted-Glass Section Backings for 100% Legibility */
+.score-section,
+.about-section,
+.plans-section,
+.results-section,
+.reviews-section,
+.videos-section,
+.gallery-section,
+.booking-section {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+footer {
+  background-color: rgba(12, 11, 36, 0.9) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
