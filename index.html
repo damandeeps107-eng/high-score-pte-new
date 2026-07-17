@@ -25,7 +25,7 @@
       <nav class="nav-links">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#converter" class="nav-link">Score Guide</a>
-        <a href="#practice" class="nav-link">Practice Hub</a>
+        <a href="#about" class="nav-link">About Mam</a>
         <a href="#courses" class="nav-link">Courses</a>
         <a href="#pte-results" class="nav-link">PTE Results</a>
         <a href="#reviews" class="nav-link">Reviews</a>
@@ -210,172 +210,61 @@
     </div>
   </section>
 
-  <!-- PTE Practice Hub / Mock Test Simulator -->
-  <section class="practice-section reveal" id="practice">
-    <div class="container">
-      <h2 class="section-title">Free Live Practice Hub</h2>
-      <p class="section-subtitle">Try out real PTE exam-format practice modules and get instant interactive feedback.</p>
-
-      <!-- Practice Navigation Tabs -->
-      <div class="practice-tabs">
-        <button class="tab-btn active" data-tab="speaking"><i class="fa-solid fa-microphone"></i> Speaking</button>
-        <button class="tab-btn" data-tab="writing"><i class="fa-solid fa-pen-fancy"></i> Writing</button>
-        <button class="tab-btn" data-tab="reading"><i class="fa-solid fa-book-open"></i> Reading</button>
-        <button class="tab-btn" data-tab="listening"><i class="fa-solid fa-headphones"></i> Listening</button>
+  <!-- About Harpreet Mam Section -->
+  <section class="about-section reveal" id="about">
+    <div class="container about-grid">
+      <!-- Left Column: Image -->
+      <div class="about-image">
+        <img src="assets/testimonials/11_classroom_teacher_students.jpeg" alt="Harpreet Mam Live Classes">
+        <div class="about-image-overlay">
+          <h4>Live Interactive Classroom</h4>
+          <p>Harpreet Mam mentoring student batches in Patiala</p>
+        </div>
       </div>
-
-      <!-- Practice Panels -->
-      <div class="practice-content">
+      <!-- Right Column: Content -->
+      <div class="about-content">
+        <span><i class="fa-solid fa-graduation-cap"></i> Meet Your Instructor</span>
+        <h2>Learn Directly From <span>Harpreet Mam</span></h2>
+        <p>
+          Harpreet Mam is a certified Pearson PTE coaching specialist who has spent over 5 years training students and cracking the exact patterns of the PTE Academic & Core exams. Her personalized methodologies, dynamic essay structures, and speaking templates have helped hundreds of Patiala students score overall 79+ (8+ Band equivalency).
+        </p>
+        <p>
+          She specializes in transforming average communication skills into peak exam performance. With her daily live sessions, individual speaking feedback, and custom test strategy plans, she ensures every candidate reaches their target score in their very first attempt.
+        </p>
         
-        <!-- Speaking Panel -->
-        <div class="practice-panel active" id="panel-speaking">
-          <div class="panel-prompt">
-            <h3><i class="fa-solid fa-circle-info"></i> Speaking: Read Aloud</h3>
-            <p class="prompt-instruction">Look at the text below. In 40 seconds, you must read this text aloud as naturally and clearly as possible. Click record when ready.</p>
-            <div class="prompt-body" id="speaking-text-to-read">
-              "Traditional education structures are undergoing a major shift. The integration of artificial intelligence and automated scoring systems offers students custom diagnostics, enabling them to evaluate their strengths and target their preparation methods systematically."
+        <!-- Credentials Bullet List -->
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <div class="about-stat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="about-stat-info">
+              <h5>5+ Years Coaching</h5>
+              <p>PTE Exam Specialization</p>
             </div>
           </div>
-          <div class="simulator-box glass-panel">
-            <h3>Recording Control</h3>
-            <div class="recorder-ui">
-              <button class="recorder-btn" id="record-speaking-btn">
-                <i class="fa-solid fa-microphone"></i>
-              </button>
-              <div class="recorder-status" id="speaking-status-text">Click icon to start recording</div>
-              <div class="voice-wave" id="speaking-wave">
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-              </div>
+          <div class="about-stat-item">
+            <div class="about-stat-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="about-stat-info">
+              <h5>8.5 Band Score</h5>
+              <p>Personal Exam Pedigree</p>
             </div>
-            <div class="feedback-box" id="speaking-feedback">
-              <div class="feedback-header">
-                <span class="feedback-title"><i class="fa-solid fa-check-double"></i> Feedback</span>
-                <span class="feedback-score-value"><span id="speaking-score">--</span>/90</span>
-              </div>
-              <ul class="feedback-list">
-                <li id="speaking-feedback-pron">Pronunciation: Stable, clear word segments.</li>
-                <li id="speaking-feedback-flu">Fluency: High rhythm with negligible pauses.</li>
-              </ul>
+          </div>
+          <div class="about-stat-item">
+            <div class="about-stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="about-stat-info">
+              <h5>Custom Templates</h5>
+              <p>100% Score Guaranteed</p>
+            </div>
+          </div>
+          <div class="about-stat-item">
+            <div class="about-stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="about-stat-info">
+              <h5>1200+ Achievers</h5>
+              <p>Trained in Patiala & Online</p>
             </div>
           </div>
         </div>
 
-        <!-- Writing Panel -->
-        <div class="practice-panel" id="panel-writing">
-          <div class="panel-prompt">
-            <h3><i class="fa-solid fa-circle-info"></i> Writing: Write Essay</h3>
-            <p class="prompt-instruction">You will have 20 minutes to plan, write, and revise an essay about the topic below. Your response will be judged on grammar, spelling, and structure.</p>
-            <div class="prompt-body">
-              "Some people think that university education should be free for everyone. Others disagree, stating that university education should only be funded for outstanding academic performance. Discuss both sides and give your opinion."
-            </div>
-          </div>
-          <div class="simulator-box glass-panel">
-            <h3>Essay Editor</h3>
-            <textarea class="essay-textarea" id="essay-input-box" placeholder="Start typing your essay here..."></textarea>
-            <div class="essay-meta">
-              <div class="timer-box"><i class="fa-regular fa-clock"></i> Time Left: <span id="essay-timer">20:00</span></div>
-              <div class="word-count">Word Count: <span id="essay-word-val">0</span> / 300 (Min 200 recommended)</div>
-            </div>
-            <button class="btn btn-primary" id="submit-essay-btn" style="margin-top: 20px;"><i class="fa-solid fa-paper-plane"></i> Evaluate Essay</button>
-            <div class="feedback-box" id="writing-feedback">
-              <div class="feedback-header">
-                <span class="feedback-title"><i class="fa-solid fa-check-double"></i> Feedback</span>
-                <span class="feedback-score-value"><span id="writing-score">--</span>/90</span>
-              </div>
-              <ul class="feedback-list">
-                <li id="writing-feedback-grammar">Grammar & Structure: Strong complex sentence patterns.</li>
-                <li id="writing-feedback-vocab">Vocabulary Range: Academic words recognized.</li>
-                <li id="writing-feedback-words">Word count matches the recommended threshold.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reading Panel -->
-        <div class="practice-panel" id="panel-reading">
-          <div class="panel-prompt">
-            <h3><i class="fa-solid fa-circle-info"></i> Reading: Fill in the Blanks</h3>
-            <p class="prompt-instruction">In the text below, some words are missing. Select the correct word from the dropdown selection for each blank space.</p>
-            <div class="prompt-body" style="font-size: 1.1rem; line-height: 2;">
-              The study of ecology deals with how living organisms interact with their 
-              <select class="blank-dropdown" id="reading-blank-1">
-                <option value="">--select--</option>
-                <option value="environment">environment</option>
-                <option value="friends">friends</option>
-                <option value="histories">histories</option>
-              </select> 
-              and with each other. Understanding these relationships is 
-              <select class="blank-dropdown" id="reading-blank-2">
-                <option value="">--select--</option>
-                <option value="trivial">trivial</option>
-                <option value="essential">essential</option>
-                <option value="optional">optional</option>
-              </select> 
-              for preserving biodiversity and maintaining ecological balance in fragile 
-              <select class="blank-dropdown" id="reading-blank-3">
-                <option value="">--select--</option>
-                <option value="systems">systems</option>
-                <option value="buildings">buildings</option>
-                <option value="cities">cities</option>
-              </select>.
-            </div>
-          </div>
-          <div class="simulator-box glass-panel">
-            <h3>Submit Quiz</h3>
-            <p style="text-align: center; margin-bottom: 20px; color: var(--text-muted);">Ensure all dropdown selections are filled before submitting.</p>
-            <button class="btn btn-primary" id="submit-reading-btn"><i class="fa-solid fa-check"></i> Submit Answers</button>
-            <div class="feedback-box" id="reading-feedback">
-              <div class="feedback-header">
-                <span class="feedback-title"><i class="fa-solid fa-check-double"></i> Feedback</span>
-                <span class="feedback-score-value"><span id="reading-score">--</span>/90</span>
-              </div>
-              <ul class="feedback-list">
-                <li id="reading-feedback-text">Select correct options to see feedback summary.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Listening Panel -->
-        <div class="practice-panel" id="panel-listening">
-          <div class="panel-prompt">
-            <h3><i class="fa-solid fa-circle-info"></i> Listening: Repeat Sentence</h3>
-            <p class="prompt-instruction">Play the audio recording below. Listen carefully to the sentence, then type the exact sentence in the box provided.</p>
-            <div class="audio-player-wrapper">
-              <button class="audio-control-btn" id="play-listening-audio-btn">
-                <i class="fa-solid fa-play"></i>
-              </button>
-              <div class="audio-progress-bar">
-                <div class="audio-progress-fill" id="listening-audio-progress"></div>
-              </div>
-              <span id="listening-audio-time">0:00</span>
-            </div>
-          </div>
-          <div class="simulator-box glass-panel">
-            <h3>Transcript Input</h3>
-            <div class="form-group">
-              <label for="listening-input-box">Type the sentence you heard:</label>
-              <input type="text" class="form-control" id="listening-input-box" placeholder="e.g., The lecture will cover several topics in global economics...">
-            </div>
-            <button class="btn btn-primary" id="submit-listening-btn"><i class="fa-solid fa-bolt"></i> Verify Sentence</button>
-            <div class="feedback-box" id="listening-feedback">
-              <div class="feedback-header">
-                <span class="feedback-title"><i class="fa-solid fa-check-double"></i> Feedback</span>
-                <span class="feedback-score-value"><span id="listening-score">--</span>/90</span>
-              </div>
-              <ul class="feedback-list">
-                <li id="listening-feedback-match">Match Accuracy: --%</li>
-                <li id="listening-feedback-text">A detailed word-by-word spelling analysis is processed instantly.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+        <a href="#booking" class="btn btn-primary" style="padding: 14px 32px; border-radius: 50px; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;">Book a Free Session with Her <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -858,6 +747,7 @@
         <h4>Quick Navigation</h4>
         <ul>
           <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Mam</a></li>
           <li><a href="#pte-results">PTE Results</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#videos">Videos</a></li>
