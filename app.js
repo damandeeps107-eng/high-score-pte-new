@@ -678,7 +678,7 @@ function initMultistepForm() {
 
     const message = `Hello High Score PTE!\n\nI would like to book a Free Diagnostic Test & Consultation.\n\n*Details:*\n• Name: ${name}\n• Phone: ${phone}\n• Target PTE Score: ${targetScore}\n• Coaching Mode: ${coachingMode}\n• Preferred Date: ${date}\n• Time Slot: ${slot}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919877125925?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/918360990936?text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
   });
