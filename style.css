@@ -40,7 +40,7 @@
 body {
   font-family: var(--font-body);
   background: 
-    linear-gradient(rgba(248, 248, 252, 0.94), rgba(248, 248, 252, 0.94)),
+    linear-gradient(rgba(248, 248, 252, 0.45), rgba(248, 248, 252, 0.45)),
     url('assets/testimonials/study_abroad_students.jpg') no-repeat center center fixed;
   background-size: cover;
   color: var(--text-main);
@@ -2410,6 +2410,32 @@ footer {
   }
   .gallery-item {
     height: 280px;
+  }
+  .plans-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 10px 20px 20px 20px;
+    margin: 0 -20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .plans-grid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .plans-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .plans-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+  }
+  .plans-grid .plan-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    margin-bottom: 0;
   }
   .hero-content-centered {
     padding: 30px 20px;
