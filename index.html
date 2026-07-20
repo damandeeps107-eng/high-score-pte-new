@@ -293,7 +293,7 @@
             <li><i class="fa-solid fa-circle-check"></i> Speaking feedback from certified tutors</li>
             <li><i class="fa-solid fa-circle-check"></i> Grammar & Vocabulary foundations</li>
           </ul>
-          <a href="#booking" class="btn btn-outline" style="width: 100%;">Enroll Program</a>
+          <a href="javascript:void(0);" onclick="payNow('Regular Prep', 12000)" class="btn btn-outline" style="width: 100%;">Enroll Program</a>
         </div>
 
         <!-- Plan 2 -->
@@ -308,7 +308,7 @@
             <li><i class="fa-solid fa-circle-check"></i> Speed preparation guides & strategies</li>
             <li><i class="fa-solid fa-circle-check"></i> One-on-one speaking mock evaluation</li>
           </ul>
-          <a href="#booking" class="btn btn-primary" style="width: 100%;">Enroll Program</a>
+          <a href="javascript:void(0);" onclick="payNow('Fast Track Bootcamp', 8000)" class="btn btn-primary" style="width: 100%;">Enroll Program</a>
         </div>
 
         <!-- Plan 3 -->
@@ -322,7 +322,7 @@
             <li><i class="fa-solid fa-circle-check"></i> Weekly group speaking assessments</li>
             <li><i class="fa-solid fa-circle-check"></i> Portal access for materials</li>
           </ul>
-          <a href="#booking" class="btn btn-outline" style="width: 100%;">Enroll Program</a>
+          <a href="javascript:void(0);" onclick="payNow('Weekend Masterclass', 10000)" class="btn btn-outline" style="width: 100%;">Enroll Program</a>
         </div>
       </div>
     </div>
@@ -783,6 +783,9 @@
       <p>Designed with clinical precision & premium diagnostics.</p>
     </div>
   </footer>
+
+  <!-- Razorpay SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <!-- App logic script -->
   <script src="app.js?v=5"></script>

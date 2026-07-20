@@ -716,3 +716,24 @@ function initHeroSlideshow() {
     slides[currentIdx].classList.add('active');
   }, 5000);
 }
+
+// 8. Razorpay Payment Trigger
+function payNow(planName, amount) {
+  const options = {
+    "key": "rzp_live_TFfo7OCgdmxy8L",
+    "amount": amount * 100,
+    "currency": "INR",
+    "name": "High Score PTE",
+    "description": `Enrollment for ${planName}`,
+    "handler": function (response) {
+      // Redirect to success.html with transaction details
+      window.location.href = `success.html?payment_id=${response.razorpay_payment_id}&plan=${encodeURIComponent(planName)}&amount=${amount}`;
+    },
+    "theme": {
+      "color": "#3b2fcd"
+    }
+  };
+
+  const rzp = new Razorpay(options);
+  rzp.open();
+}
