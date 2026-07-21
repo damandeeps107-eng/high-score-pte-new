@@ -2294,11 +2294,8 @@ footer {
   line-height: 1.2;
 }
 .about-content h2 span {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   padding: 0;
-  border: none;
   font-size: inherit;
   font-weight: inherit;
 }
