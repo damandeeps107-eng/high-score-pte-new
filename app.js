@@ -550,15 +550,28 @@ function initVideoPlayers() {
           const parent = v.closest('.video-container');
           if (parent) {
             parent.classList.remove('playing');
-            v.removeAttribute('controls');
           }
         }
       });
 
       // Play selected video
       container.classList.add('playing');
-      video.setAttribute('controls', 'true');
-      video.play();
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn('Playback prevented or interrupted:', err);
+        });
+      }
+    });
+
+    video.addEventListener('pause', () => {
+      if (!video.seeking) {
+        container.classList.remove('playing');
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      container.classList.remove('playing');
     });
   });
 }
