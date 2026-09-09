@@ -540,7 +540,24 @@ function initVideoPlayers() {
     const video = container.querySelector('.testimonial-video');
     const overlay = container.querySelector('.video-overlay');
 
-    if (!video || !overlay) return;
+    if (!video) return;
+
+    // Detect actual video dimensions on metadata load
+    video.addEventListener('loadedmetadata', () => {
+      if (video.videoWidth && video.videoHeight) {
+        if (video.videoWidth >= video.videoHeight) {
+          container.classList.remove('portrait-container');
+          container.classList.add('landscape-container');
+          container.setAttribute('data-aspect', '16:9');
+        } else {
+          container.classList.remove('landscape-container');
+          container.classList.add('portrait-container');
+          container.setAttribute('data-aspect', '9:16');
+        }
+      }
+    });
+
+    if (!overlay) return;
 
     overlay.addEventListener('click', () => {
       // Pause all other playing videos for premium experience
