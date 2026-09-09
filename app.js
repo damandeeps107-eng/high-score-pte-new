@@ -54,136 +54,6 @@ function initHeader() {
   }
 }
 
-// 6. Scroll Reveal Animation
-function initScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  reveals.forEach(reveal => {
-    observer.observe(reveal);
-  });
-}
-
-// 7. Hero Image Slideshow
-function initHeroSlideshow() {
-  const slides = document.querySelectorAll('.hero-bg-slider .slide');
-  if (slides.length === 0) return;
-
-  let currentIdx = 0;
-  setInterval(() => {
-    slides[currentIdx].classList.remove('active');
-    currentIdx = (currentIdx + 1) % slides.length;
-    slides[currentIdx].classList.add('active');
-  }, 5000);
-}
-
-// 8. Razorpay Payment Trigger
-function payNow(planName, amount) {
-  const options = {
-    "key": "rzp_live_TFfo7OCgdmxy8L",
-    "amount": amount * 100,
-    "currency": "INR",
-    "name": "High Score PTE",
-    "description": `Enrollment for ${planName}`,
-    "handler": function (response) {
-      // Redirect to success.html with transaction details
-      window.location.href = `success.html?payment_id=${response.razorpay_payment_id}&plan=${encodeURIComponent(planName)}&amount=${amount}`;
-    },
-    "theme": {
-      "color": "#3b2fcd"
-    }
-  };
-
-  const rzp = new Razorpay(options);
-  rzp.open();
-}
-
-// 9. Results Grid Filtering
-function initResultsFilter() {
-  const filterButtons = document.querySelectorAll('.results-filter-bar .filter-btn');
-  const resultCards = document.querySelectorAll('.results-grid .result-card');
-
-  if (filterButtons.length === 0 || resultCards.length === 0) return;
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      resultCards.forEach(card => {
-        const categories = card.getAttribute('data-category').split(' ');
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          card.style.display = 'flex';
-          // Trigger browser layout pass for transitions
-          void card.offsetWidth;
-          card.style.opacity = '1';
-          card.style.transform = 'scale(1)';
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.9)';
-          // Listen for transition end to toggle display
-          const handleTransition = (e) => {
-            if (e.propertyName === 'opacity' && card.style.opacity === '0') {
-              card.style.display = 'none';
-            }
-            card.removeEventListener('transitionend', handleTransition);
-          };
-          card.addEventListener('transitionend', handleTransition);
-        }
-      });
-    });
-  });
-}
-
-// 10. Global Lightbox Modal
-function initLightbox() {
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLightbox();
-    }
-  });
-}
-
-function openLightbox(src, caption) {
-  const lightbox = document.getElementById('global-lightbox');
-  const lightboxImg = document.getElementById('lightbox-image');
-  const lightboxCap = document.getElementById('lightbox-caption');
-
-  if (!lightbox || !lightboxImg || !lightboxCap) return;
-
-  lightboxImg.src = src;
-  lightboxImg.alt = caption || 'PTE Scorecard Preview';
-  lightboxCap.textContent = caption || '';
-
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Disable page scrolling
-}
-
-function closeLightbox() {
-  const lightbox = document.getElementById('global-lightbox');
-  if (!lightbox) return;
-
-  lightbox.classList.remove('active');
-  document.body.style.overflow = ''; // Re-enable page scrolling
-}
-
-// Export functions to global window context
-window.openLightbox = openLightbox;
-window.closeLightbox = closeLightbox;
-
-
 // 2. Score Slider Converter
 function initScoreConverter() {
   const slider = document.getElementById('pte-range-slider');
@@ -808,8 +678,41 @@ function initMultistepForm() {
 
     const message = `Hello High Score PTE!\n\nI would like to book a Free Diagnostic Test & Consultation.\n\n*Details:*\n• Name: ${name}\n• Phone: ${phone}\n• Target PTE Score: ${targetScore}\n• Coaching Mode: ${coachingMode}\n• Preferred Date: ${date}\n• Time Slot: ${slot}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/918360990936?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/919877125925?text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank');
   });
+}
+
+// 6. Scroll Reveal Animation
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  reveals.forEach(reveal => {
+    observer.observe(reveal);
+  });
+}
+
+// 7. Hero Image Slideshow
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll('.hero-bg-slider .slide');
+  if (slides.length === 0) return;
+
+  let currentIdx = 0;
+  setInterval(() => {
+    slides[currentIdx].classList.remove('active');
+    currentIdx = (currentIdx + 1) % slides.length;
+    slides[currentIdx].classList.add('active');
+  }, 5000);
 }
